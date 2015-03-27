@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;L04_stoplight/blinky.asm&apos; to &apos;stop_light.asm&apos;" description="Rename resource &apos;blinky.asm&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="blinky.asm" name="stop_light.asm" stamp="1382563834433" updateReferences="true"/>
+</session>

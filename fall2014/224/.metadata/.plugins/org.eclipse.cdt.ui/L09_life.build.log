@@ -1,0 +1,21 @@
+
+**** Build of configuration Debug for project L09_life ****
+
+C:\ti\ccsv5\utils\bin\gmake -k all 
+'Building file: ../life.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv5/tools/compiler/msp430_4.1.0/bin/cl430" -vmsp --abi=coffabi -g --include_path="C:/ti/ccsv5/ccs_base/msp430/include" --include_path="C:/ti/ccsv5/tools/compiler/msp430_4.1.0/include" --advice:power=all --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="life.pp"  "../life.c"
+"../life.c", line 150: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../life.c", line 150: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../life.c", line 150: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+'Finished building: ../life.c'
+' '
+'Building target: L09_life.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv5/tools/compiler/msp430_4.1.0/bin/cl430" -vmsp --abi=coffabi -g --advice:power=all --define=__MSP430F2274__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z --stack_size=80 -m"L09_life.map" --heap_size=80 -i"C:/ti/ccsv5/ccs_base/msp430/include" -i"C:/ti/ccsv5/tools/compiler/msp430_4.1.0/lib" -i"C:/ti/ccsv5/tools/compiler/msp430_4.1.0/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --rom_model -o "L09_life.out"  "./lifelib.obj" "./life.obj" "./RBX430_lcd.obj" "./RBX430-1.obj" -l"libc.a" "../lnk_msp430f2274.cmd" 
+<Linking>
+"../lnk_msp430f2274.cmd", line 79: warning #10374-D: Interrupt vector "PORT1" does not have an interrupt handler routine.
+'Finished building target: L09_life.out'
+' '
+
+**** Build Finished ****

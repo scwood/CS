@@ -1,0 +1,17 @@
+
+Schemes: 
+	people(A,B,C,D)
+Facts:
+	people('6','3','3','6').
+	people('1','2','3','4').
+	people('1','2','2','1').
+	people('3','2','2','3').
+	people('1','2','2','1').
+	people('1','6','6','1').
+	people('1','0','0','1').
+	people('3','5','1','1').
+	people('1','1','1','1').
+Rules:
+Queries:
+	people(T,T,T,T)?
+	people(A,B,B,A)?

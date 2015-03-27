@@ -1,0 +1,22 @@
+Schemes:
+  snap(S,N,A,P)
+
+#comment
+
+  HasSameAddress(X,Y)
+
+Facts: #comment
+  snap('12345','12345','C. Brown','12 Apple','12345','555-1234').
+  snap('33333','Snoopy','12345','12345','12345','12 Apple','555-1234').
+
+Rules:
+  HasSameAddress(X,X,Y) :- snap((X+X),X),snap(D,Y,B,'12345',E).
+
+#comment
+
+Queries:
+  HasSameAddress('Snoopy',Who)?
+
+# FIX EXPRESSION LOGIC IN THE MATCH RIGHT PARENTHESIS METHOD
+# USB USB STICK TO TRANSFER FILES
+# GET RID OF WARNINGS FOR FUNSIES

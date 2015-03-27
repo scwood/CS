@@ -1,0 +1,21 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"map-set.sublime-project"
+			],
+			"follow_symlinks": true,
+			"path": "/Users/spencerwood/Documents/cs-backup/235/lab07"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				"lab08/lab08.sublime-project"
+			],
+			"follow_symlinks": true,
+			"path": "/Users/spencerwood/Documents/cs-backup/235"
+		}
+	]
+}

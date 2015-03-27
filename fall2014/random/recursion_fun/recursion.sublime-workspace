@@ -1,0 +1,520 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"if",
+				"if_	if(…)"
+			],
+			[
+				"str",
+				"struct_	struct"
+			],
+			[
+				"round",
+				"Round"
+			],
+			[
+				"stre",
+				"strength"
+			],
+			[
+				"secon",
+				"second_save"
+			],
+			[
+				"sav",
+				"second_save"
+			],
+			[
+				"second",
+				"second_go"
+			],
+			[
+				"random",
+				"random_number"
+			],
+			[
+				"print",
+				"printTeam"
+			],
+			[
+				"new",
+				"newPerson"
+			],
+			[
+				"remov",
+				"removeHeadPerson"
+			],
+			[
+				"strent",
+				"strengthAt"
+			],
+			[
+				"stren",
+				"strengthAt"
+			],
+			[
+				"tem",
+				"temp_strength"
+			],
+			[
+				"the",
+				"the_name"
+			],
+			[
+				"file",
+				"file_name"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "exponent.cpp",
+			"settings":
+			{
+				"buffer_size": 460,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "fibonacci.cpp",
+			"settings":
+			{
+				"buffer_size": 557,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"selected_items":
+		[
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":Ww",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"isntal",
+				"Package Control: Install Package"
+			],
+			[
+				"ext",
+				"PackageResourceViewer: Extract Package"
+			],
+			[
+				"extra",
+				"PackageResourceViewer: Extract Package"
+			],
+			[
+				"Extract",
+				"PackageResourceViewer: Extract Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"diab",
+				"Package Control: Disable Package"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"linter",
+				"SublimeLinter: Enable Linting"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"disabl",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"disable",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"disb",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"INstall ",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"Packag",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 475.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"g++ test.cpp",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/spencerwood/Documents/CS",
+		"/Users/spencerwood/Documents/CS/recursion_fun"
+	],
+	"file_history":
+	[
+		"/Users/spencerwood/Documents/CS/test.cpp",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Base File.sublime-settings",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/spencerwood/Documents/CS/recursion_fun/fibonacci.cpp",
+		"/Users/spencerwood/Documents/CS/recursion_fun/test.cpp",
+		"/Users/spencerwood/Documents/CS/recursion_fun/hello.cpp",
+		"/Users/spencerwood/Documents/CS/recursion_fun/a.out",
+		"/Users/spencerwood/exponent.cpp",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/spencerwood/Documents/CS/235/red_rover/main.cpp",
+		"/Users/spencerwood/Documents/CS/235/red_rover/test.cpp",
+		"/Users/spencerwood/Documents/CS/235/red_rover/DoubleLinkedList.cpp",
+		"/Users/spencerwood/Documents/CS/235/red_rover/DoubleLinkedList.h",
+		"/Users/spencerwood/Documents/CS/235/red_rover/Person.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Node.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/BST.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/BSTInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/test.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/BST.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Node.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Factory.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/a.out",
+		"/Users/spencerwood/a.out",
+		"/Users/spencerwood/Documents/CS/235/lab06/NodeInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Factory.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/BST.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/Node.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/BSTInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/NodeInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/test.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/BST.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/Node.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/Factory.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/Factory.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/Node",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/test.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/Node.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/Node.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/BSTInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/Factory.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/NodeInterface.h",
+		"/Users/spencerwood/Documents/CS/235/recursion_tests/test.cpp",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/Users/spencerwood/Documents/skwp_dotfiles/dotfiles/tmux/tmux.conf",
+		"/Users/spencerwood/Documents/skwp_dotfiles/dotfiles/vimrc",
+		"/Users/spencerwood/Documents/CS/224/L01_data_types/lab01.c",
+		"/Users/spencerwood/Documents/CS/224/L03_blinky/blinky.asm",
+		"/Users/spencerwood/Documents/CS/224/L05_stoplight/traffic.asm",
+		"/Users/spencerwood/.tmux.conf",
+		"/Users/spencerwood/.vimrc",
+		"/Users/spencerwood/Documents/CS/235/lab02/Student_Code/Node.h",
+		"/Users/spencerwood/Documents/CS/235/lab02/Student_Code/LinkedList.h",
+		"/Users/spencerwood/Documents/CS/235/lab05/PathfinderInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab05/Pathfinder.h",
+		"/Users/spencerwood/Documents/CS/235/lab05/test.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab05/Pathfinder.cpp",
+		"/Volumes/KINGSTON/ACTUAL STORAGE STUFF/CS235/Lab05/Pathfinder.cpp",
+		"/Users/spencerwood/Documents/CS_Projects/CS235/235_lab05/test.cpp",
+		"/Users/spencerwood/Documents/CS_Projects/CS235/235_lab05/Pathfinder.h",
+		"/Users/spencerwood/Documents/CS_Projects/CS235/235_lab05/Pathfinder.cpp",
+		"/Users/spencerwood/Documents/CS_Projects/CS235/235_lab05/Factory.cpp",
+		"/Users/spencerwood/Documents/CS_Projects/CS235/235_lab05/PathfinderInterface.h"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			">> ",
+			"addPerson",
+			"b_loss",
+			"();\n",
+			"\n	",
+			"choice",
+			"selection",
+			"ch",
+			"4",
+			"ch",
+			"selection",
+			"{\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"addHeadPerson",
+			"link_loss",
+			"selection",
+			"choice",
+			"selection",
+			"ch"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "exponent.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 460,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								62,
+								43
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "fibonacci.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 557,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19,
+								19
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 124.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "recursion.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"bstin",
+				"BSTInterface.h"
+			],
+			[
+				"bst",
+				"BST.h"
+			],
+			[
+				"no",
+				"Node.h"
+			],
+			[
+				"a.",
+				"a.out"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/CS/235/red_rover/redrover.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 214.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

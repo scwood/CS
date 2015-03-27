@@ -1,0 +1,22 @@
+Notes:
+
+A relation has a:
+- Set of tuples
+- A name (which is just a tuple)
+- Scheme 
+
+Steps 
+- Check for relation
+- Go through parameters
+  - if string, select
+  - if ID, rename/project
+
+Have two select methods one to match a string and one to match the columns
+against themselves
+
+Vector of relations defined by schemes. 
+Inside relation have a set of tuples (vectors).
+
+
+name(t,t,t,t,)
+name(A,B,B,A)

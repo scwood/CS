@@ -1,0 +1,591 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"wh",
+				"while_	while"
+			],
+			[
+				"whi",
+				"while_"
+			],
+			[
+				"remo",
+				"remove"
+			],
+			[
+				"left",
+				"leftChild"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 347.0,
+		"selected_items":
+		[
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				":open",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				":edit",
+				"Project: Edit"
+			],
+			[
+				"rm",
+				"Package Control: Remove Channel"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				":s",
+				":w - Save"
+			],
+			[
+				"pret",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				":",
+				"View: Toggle Minimap"
+			],
+			[
+				":jso",
+				"Set Syntax: JSON"
+			],
+			[
+				":e",
+				":e - Revert"
+			],
+			[
+				":inst",
+				"Package Control: Install Package"
+			],
+			[
+				"prv",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"gdb",
+				"SublimeGDB: Start Debugging"
+			],
+			[
+				"isnta",
+				"Package Control: Install Package"
+			],
+			[
+				"color",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"colo",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"colro",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"colors",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"colorsc",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"rsv",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"trim",
+				"Trimmer: Delete empty lines."
+			],
+			[
+				"packagereso",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"Package",
+				"Package Control: Install Package"
+			],
+			[
+				"disabl",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"disable",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"disb",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"INstall ",
+				"Package Control: Install Package"
+			],
+			[
+				"Packag",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"ls",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"g++ test.cpp",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/spencerwood/Documents/cs-backup/235"
+	],
+	"file_history":
+	[
+		"/Users/spencer/test.cpp",
+		"/Users/spencer/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/spencer/Library/Application Support/Sublime Text 3/Packages/Theme - Spacegray/Spacegray.sublime-theme",
+		"/Users/spencer/Documents/cs-backup/235/lab08/lab08.sublime-project",
+		"/Users/spencer/Documents/cs-backup/235/lab08/QS.h",
+		"/Users/spencer/Documents/cs-backup/235/lab08/test.cpp",
+		"/Users/spencer/Documents/cs-backup/235/lab08/QS.cpp",
+		"/Users/spencer/Documents/cs-backup/235/lab08/help-session.md",
+		"/Users/spencer/Documents/cs-backup/235/lab08/Factory.h",
+		"/Users/spencer/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/spencer/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/spencer/Documents/cs-backup/235/lab08/Factory.cpp",
+		"/Users/spencer/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/spencer/Documents/cs-backup/235/lab08/QSInterface.h",
+		"/Users/spencer/Library/Application Support/Sublime Text 3/Packages/JSON Reindent/JSONReindent.sublime-settings",
+		"/Users/spencer/Library/Application Support/Sublime Text 3/Packages/User/JSONReindent.sublime-settings",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/To Students/Files/queryMap_Small.txt",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/QS.cpp",
+		"/Users/spencerwood/Downloads/To Students/Student_Code/AVLInterface.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/help-session.md",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/QSInterface.h",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/#ifndef-#define-#endif.sublime-snippet",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/halflife (SL).tmTheme",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/base16-eighties.dark (SL).tmTheme",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/base16-codeschool.dark (SL).tmTheme",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/base16-twilight.dark (SL).tmTheme",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/dimmed-monokai (SL).tmTheme",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Coffee_Dark_Roast (SL).tmTheme",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Monokai Soda (SL).tmTheme",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/to_students/QS.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/Factory.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/Factory.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/lab08.sublime-project",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/To Students/test_import.txt",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/newline.sublime-snippet",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/_help-session.md",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/GPAInterface.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/Student.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/map-set.sublime-project",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/Factory.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/GPA.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/GPA.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/Student.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/GPAInterface",
+		"/Users/spencerwood/Library/Application Support/Mou/CSS/Clearness.css",
+		"/Users/spencerwood/Library/Application Support/Mou/CSS/GitHub.css",
+		"/Users/spencerwood/Documents/notes/ARTHC-202/exam_iii.md",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Markdown (Standard).sublime-settings",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/help-session.md",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/StudentInterface.h",
+		"/Users/spencerwood/Documents/red-rover/main.cpp",
+		"/Users/spencerwood/Documents/red-rover/Team.cpp",
+		"/Users/spencerwood/Documents/red-rover/redrover.sublime-project",
+		"/Users/spencerwood/Documents/CS/235/lab06/NodeInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Node.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Node.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Factory.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Factory.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/BSTInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/BST.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/BST.cpp",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/if-..-(if).sublime-snippet",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Package Control.cache/while.sublime-snippet",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Base File.sublime-settings",
+		"/Users/spencerwood/Documents/CS/235/lab06/test.cpp",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/class-..-(class).sublime-snippet",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/010-main()-(main).sublime-snippet",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/#include-(inc angle).sublime-snippet",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++ Snippets/conditional/if_elseif_else.sublime-snippet",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++ Snippets/conditional/if_else.sublime-snippet",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++ Snippets/conditional/if.sublime-snippet",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++ Snippets/README.md",
+		"/Users/spencerwood/Documents/CS/235/red_rover/main.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/a.out",
+		"/Users/spencerwood/a.out",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/BST.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/Node.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/BSTInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/NodeInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/test.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/BST.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/Node.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/Factory.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/Factory.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/Node",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/test.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/Node.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/Node.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/BSTInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/Factory.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Student_Code/NodeInterface.h",
+		"/Users/spencerwood/Documents/CS/235/recursion_tests/test.cpp",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/Users/spencerwood/Documents/skwp_dotfiles/dotfiles/tmux/tmux.conf",
+		"/Users/spencerwood/Documents/skwp_dotfiles/dotfiles/vimrc",
+		"/Users/spencerwood/Documents/CS/224/L01_data_types/lab01.c",
+		"/Users/spencerwood/Documents/CS/224/L03_blinky/blinky.asm",
+		"/Users/spencerwood/Documents/CS/224/L05_stoplight/traffic.asm",
+		"/Users/spencerwood/.tmux.conf",
+		"/Users/spencerwood/.vimrc",
+		"/Users/spencerwood/Documents/CS/235/lab02/Student_Code/Node.h",
+		"/Users/spencerwood/Documents/CS/235/lab02/Student_Code/LinkedList.h",
+		"/Users/spencerwood/Documents/CS/235/lab05/PathfinderInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab05/Pathfinder.h",
+		"/Users/spencerwood/Documents/CS/235/lab05/test.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab05/Pathfinder.cpp",
+		"/Volumes/KINGSTON/ACTUAL STORAGE STUFF/CS235/Lab05/Pathfinder.cpp",
+		"/Users/spencerwood/Documents/CS_Projects/CS235/235_lab05/test.cpp",
+		"/Users/spencerwood/Documents/CS_Projects/CS235/235_lab05/Pathfinder.h",
+		"/Users/spencerwood/Documents/CS_Projects/CS235/235_lab05/Pathfinder.cpp",
+		"/Users/spencerwood/Documents/CS_Projects/CS235/235_lab05/Factory.cpp",
+		"/Users/spencerwood/Documents/CS_Projects/CS235/235_lab05/PathfinderInterface.h"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 106.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"n",
+			"on",
+			"one",
+			"main",
+			"factor",
+			"stringstr",
+			"stringstrem",
+			"stringstr",
+			"createA",
+			"bool",
+			"getsiz",
+			"getSi",
+			"focus_group",
+			"background",
+			"size",
+			"medianof",
+			"add",
+			"predecessor",
+			"predec",
+			"find",
+			"\"\\n\"",
+			"add",
+			"find",
+			"remove",
+			"add",
+			"	test.add(10);\n	test.add(5);\n	test.add(20);\n	test.add(1);\n	test.add(8);\n	test.add(6);\n	test.add(9);\n	test.add(7);\n	test.add(15);\n	test.add(12);\n	test.add(11);\n	test.add(14);\n	test.add(13);\n	test.add(25);\n	test.add(30);\n	test.add(27);\n	test.add(29);\n	test.add(26);",
+			"rightChild",
+			"leftChild",
+			"();\n",
+			">> "
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"array_size",
+			"find",
+			"endl",
+			"find",
+			"remove",
+			"find",
+			"remove",
+			"right_child",
+			"left_child"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 38.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 124.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "lab08.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/test.cpp"
+			],
+			[
+				"qs",
+				"~/Documents/cs-backup/235/lab08/QS.cpp"
+			],
+			[
+				"pre",
+				"~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+			],
+			[
+				"te",
+				"~/Documents/cs-backup/235/lab08/test.cpp"
+			],
+			[
+				"q",
+				"235/lab08/QS.cpp"
+			],
+			[
+				"gpain",
+				"GPAInterface.h"
+			],
+			[
+				"bst.h",
+				"BSTInterface.h"
+			],
+			[
+				"bst",
+				"BST.h"
+			],
+			[
+				"bst.cp",
+				"BST.cpp"
+			],
+			[
+				"int",
+				"NodeInterface.h"
+			],
+			[
+				"nod",
+				"NodeInterface.h"
+			],
+			[
+				"in",
+				"BSTInterface.h"
+			],
+			[
+				"node",
+				"NodeInterface.h"
+			],
+			[
+				"fac",
+				"Factory.h"
+			],
+			[
+				"bstin",
+				"BSTInterface.h"
+			],
+			[
+				"nodein",
+				"NodeInterface.h"
+			],
+			[
+				"no",
+				"Node.h"
+			],
+			[
+				"a.",
+				"a.out"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+		"_vintageous_reset_during_init": true,
+		"vintage":
+		{
+			"_cmdline_cd": "/Users/spencer/Library/Application Support/Sublime Text 3/Packages"
+		}
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 218.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

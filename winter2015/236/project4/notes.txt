@@ -1,0 +1,34 @@
+Natural join
+Combine schema
+Compare tuples for R1 and R2
+if joinable(t1, t2, schema1, schema2) 
+    join(t1, t2, schema1, schema2)
+
+
+joinable
+  for schema1
+    for schema2
+      if schema1[i] == schema2[j] && t1[i] != t2[j]
+        false, cannot join
+true
+
+join
+  newtuple = t1
+  for schema2
+    for schema1
+      if s2[i] == s1[j]
+        False
+      if true
+      new tuple.pushback(t2[i])
+
+join each tuple one at a time
+
+database size = sum of all tuples in the relations
+
+Rules:
+
+A
+B
+C
+
+Run all rules until database size isn't changing anymore
