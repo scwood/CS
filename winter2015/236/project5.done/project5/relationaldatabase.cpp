@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include "datalogprogram.h"
+#include "graph.h"
 
 #define TESTING false
 
@@ -102,11 +103,65 @@ void RelationalDatabase::answerQueries() {
   }
 }
 
+void RelationalDatabase::evaluateRulesWithGraph() {
+  Graph dependency_graph;
+  dependency_graph.generateVertices(program.rules);
+  cout << "Dependency Graph\n";
+  cout << dependency_graph.toString();
+  vector<Component> SCCs = dependency_graph.getSCCs();
+  cout << "\nRule Evaluation\n";
+  for (int i = 0; i < SCCs.size(); i++) {
+    int passes = 0;
+    if (SCCs[i].trivial) {
+      passes++;
+      evaluateRule(SCCs[i].rules[0]);
+    } else {
+      bool updating = true;
+      while (updating) { 
+        passes++;
+        for (int j = 0; j < SCCs[i].rules.size(); j++) {
+          evaluateRule(SCCs[i].rules[j]);
+        }
+        int old_database_size = database_size;
+        updateDatabaseSize();
+        if (database_size == old_database_size) {
+          updating = false;
+        }
+      }
+    }
+    cout << passes << " passes: " << SCCs[i].toString();
+  }
+  cout << "\nQuery Evaluation\n";
+}
+
+void RelationalDatabase::evaluateRule(int rule){
+  vector<Relation> intermediate_solutions;
+  intermediate_solutions =
+    evaluatePredicates(program.rules[rule]);
+  Relation result = intermediate_solutions[0];
+  if (intermediate_solutions.size() > 1) {
+    for (int j = 1; j < intermediate_solutions.size(); j++) {
+      result = naturalJoin(result, intermediate_solutions[j]);
+    }
+  }
+  vector<string> id_list;
+  for (int j = 0; 
+      j < program.rules[rule].head.parameter_list.size(); 
+      j++) {
+    string id =
+      program.rules[rule].head.parameter_list[j].contents;
+    id_list.push_back(id);
+  }
+  result = project(result, id_list);
+  result.id = program.rules[rule].head.id;
+  unionWithDatabase(result);
+}
+
 void RelationalDatabase::evaluateRules() {
   int passes = 0;
-  bool updating = true;
   // go until rules aren't generating anymore facts
   int i = 0;
+  bool updating = true;
   while(updating) {
     passes++;
     for (int i = 0; i < program.rules.size(); i++) {

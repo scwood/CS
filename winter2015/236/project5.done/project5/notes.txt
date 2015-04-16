@@ -1,0 +1,91 @@
+Build a graph
+
+Build a reverse graph
+
+DFS on reverse graph
+
+DFS(node x)
+  mark x as visited
+  for its dependents y
+    if(y !visited) 
+      DFS(y)
+  set post order number
+  post order number++
+
+Get post order numbers, reverse order, bring back order to original graph
+
+Run DFS on this new reversed post order from reverse graph and it will generate the strongly connected components
+
+If the SCC has only one node, and the node doesn't point to itself, then only run it once
+
+Pass by reference
+
+--------------------------------------------------------------------------------
+
+R0 A :- E
+R1 B :- C, A
+R2 C :- D
+R3 D :- D
+R4 F :- G
+
+Class node: set of adjacencies and flag visited or not
+
+Graph
+-----
+Map (integer of rule and a node)
+0: {}
+1: {0, 2}
+2: {3}
+3: {3}
+4: {}
+
+Get topological sort of graph
+
+1) reverse the graph
+0: {1}
+1: {}
+2: {1}
+3: {2,3}
+4: {}
+
+DFS()
+-----
+
+R0 (po of 2)
+|
+R1 (po of 1)
+
+R2 (po of 3)
+
+R3 (po of 4)
+
+R4 (po of 5)
+
+Push onto a stack so that it's in reverse order
+
+4, 3, 2, 0, 1
+
+Do a DFS() on original map, but do it in reverse post order
+
+R4 - can't go anywhere, so he's his own SCC set
+R3 - can't go anywhere, but can visit himself, so he's his own SCC BUT he's cyclic, run fixed point
+R2 - own component 
+R0 - own component
+R1 - own component
+
+Evaluate rules R4, R3, R2, etc.
+
+If cyclical than run fixed point, if not just run once
+
+DFS(Node& x) {
+  x visited()
+}
+
+
+----------------------
+
+
+DFS to build SCCS:
+
+Base case: if visited pop and return
+if SCC is empty and no adjacencies, set to trivial, push number onto to SCC

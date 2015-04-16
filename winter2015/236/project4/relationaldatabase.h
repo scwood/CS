@@ -23,7 +23,15 @@ private:
   Relation select(Relation relation, int index_one, int index_two);
   Relation rename(Relation relation, int index, std::string token);
   Relation project(Relation relation, std::vector<std::string> id_list);
-  Relation naturalJoin(std::vector<Relation> relations);
+  Relation naturalJoin(Relation r1, Relation r2);
+  bool joinable(
+      std::vector<std::string> t1, 
+      std::vector<std::string> t2, 
+      std::vector<std::string> s1, 
+      std::vector<std::string> s2);
+  std::vector<std::string> join(
+      std::vector<std::string> t1, 
+      std::vector<std::string> t2);
   std::vector<Relation> evaluatePredicates(Rule rule);
   void unionWithDatabase(Relation relation);
   // data members
