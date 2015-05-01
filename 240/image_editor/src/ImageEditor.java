@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter; 
+import java.util.Arrays;
 
 public class ImageEditor {
 
@@ -43,7 +44,12 @@ public class ImageEditor {
 
   public Image emboss(Image img) {
     Image edited = new Image();
-    edited.pixels = img.pixels.clone();
+    edited.pixels = new Pixel[img.height][img.width];
+    for (int i = 0; i < img.height; i++) {
+      for (int j = 0; j < img.width; j++) {
+        edited.pixels[i][j] = new Pixel(0, 0, 0);
+      }
+    }
     for (int h = 0; h < img.pixels.length; h++) {
       for (int w = 0; w < img.pixels[0].length; w++) {
         if (h == 0 || w == 0) {
@@ -52,12 +58,17 @@ public class ImageEditor {
           edited.pixels[h][w].setBlue(128);
         }
         else {
+          System.out.println("pixel red: " + img.pixels[h][w].getRed());
+          System.out.println("prev red: " + img.pixels[h-1][w-1].getRed());
           int r_diff = img.pixels[h][w].getRed() -
             img.pixels[h - 1][w - 1].getRed();
+          System.out.println("red diff = " + r_diff);
           int g_diff = img.pixels[h][w].getGreen() -
             img.pixels[h - 1][w - 1].getGreen();
+          System.out.println("green diff = " + g_diff);
           int b_diff = img.pixels[h][w].getBlue() -
             img.pixels[h - 1][w - 1].getBlue();
+          System.out.println("blue diff = " + b_diff);
           int max_diff;
           if (Math.abs(r_diff) >= Math.abs(g_diff) &&
              (Math.abs(r_diff) >= Math.abs(b_diff))) {
@@ -169,6 +180,17 @@ public class ImageEditor {
     } catch(IOException exception) {
       System.out.println("error: can't write file");
     }
+  }
+
+  public Pixel[][] deepCopyPixels(Pixel[][] input) {
+    if (input == null) {
+      return null;
+    }
+    Pixel[][] result = new Pixel[input.length][];
+    for (int i = 0; i < input.length; i++) {
+      result[i] = Arrays.copyOf(input[i], input[i].length);
+    }
+    return result;
   }
 
 }
