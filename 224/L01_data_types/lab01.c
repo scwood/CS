@@ -42,21 +42,23 @@ int main(void)
 
 	TERMINAL("\n\r-----------------------------------\n\n\r*** CHAR ***\n");
 
-    next_char = 1;						// Positive S char
-    biggest_char = 1;
-    while((next_char <<= 1) > 0)
-    {
-    	biggest_char = (biggest_char << 1) + 1;;
-    }
+  next_char = 1;						// Positive S char
+  biggest_char = 1;
+  while((next_char <<= 1) > 0)
+  {
+    biggest_char = (biggest_char << 1) + 1;;
+  }
+
 	TERMINAL2("Largest signed char = %d (0x%2x)", biggest_char);
 
-    next_uchar = 1;						// Positive U char
-    biggest_uchar = 1;
-    while((next_uchar <<= 1) > 0)
-    {
-    	biggest_uchar = (biggest_uchar << 1) + 1;;
-    }
-	TERMINAL2("Largest unsigned char = %u (0x%2x)", biggest_uchar);
+  next_uchar = 1;						// Positive U char
+  biggest_uchar = 1;
+  while((next_uchar <<= 1) > 0)
+  {
+    biggest_uchar = (biggest_uchar << 1) + 1;;
+  }
+
+  TERMINAL2("Largest unsigned char = %u (0x%2x)", biggest_uchar);
 
 	next_neg_char = 1;					// Negative char
 	neg_char = 1;
@@ -78,7 +80,7 @@ int main(void)
 
     next_int = 1;						// Positive S int
     biggest_int = 1;
-    while((next_int <<= 1) > 0)
+    while((next_int <<= 2) > 0)
     {
     	biggest_int = (biggest_int << 1) + 1;;
     }
