@@ -58,17 +58,12 @@ public class ImageEditor {
           edited.pixels[h][w].setBlue(128);
         }
         else {
-          System.out.println("pixel red: " + img.pixels[h][w].getRed());
-          System.out.println("prev red: " + img.pixels[h-1][w-1].getRed());
           int r_diff = img.pixels[h][w].getRed() -
             img.pixels[h - 1][w - 1].getRed();
-          System.out.println("red diff = " + r_diff);
           int g_diff = img.pixels[h][w].getGreen() -
             img.pixels[h - 1][w - 1].getGreen();
-          System.out.println("green diff = " + g_diff);
           int b_diff = img.pixels[h][w].getBlue() -
             img.pixels[h - 1][w - 1].getBlue();
-          System.out.println("blue diff = " + b_diff);
           int max_diff;
           if (Math.abs(r_diff) >= Math.abs(g_diff) &&
              (Math.abs(r_diff) >= Math.abs(b_diff))) {
