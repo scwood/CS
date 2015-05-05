@@ -1,10 +1,13 @@
 package spell;
 
+import java.util.ArrayList;
+
 public class Trie implements ITrie {
 
   private Node root = new Node();
   private int nodeCount = 1; // root counts as a node
   private int wordCount = 0;
+  private ArrayList<Node> nodeList = new ArrayList<Node>();
 
   /**
    * Adds the specified word to the trie (if necessary) and increments the
@@ -18,6 +21,7 @@ public class Trie implements ITrie {
       int index = c - 'a';
       if (currentNode.nodes[index] == null) {
         currentNode.nodes[index] = new Node();
+        nodeList.add(currentNode);
         nodeCount++;
         currentNode.nodes[index].parent = currentNode;
       }
@@ -77,6 +81,8 @@ public class Trie implements ITrie {
         StringBuilder result) {
     if (node.value != 0) {
       result.append(currentWord);
+      result.append(" ");
+      result.append(node.value);
       result.append('\n');
     }
     for (int i = 0; i < node.nodes.length; i++) {
@@ -88,6 +94,48 @@ public class Trie implements ITrie {
       }
     }
   }
+
+// ------------------------------------------------------------
+
+  /**
+   * Builds a StringBuilder object of the trie
+   * @return A string of format <word>\n (the last \n is omitted)
+   */
+	public String toStringValues() {
+    StringBuilder currentWord = new StringBuilder();
+    StringBuilder result = new StringBuilder();
+    preOrderTraversalValues(root, currentWord, result); 
+    if (result.length() > 0) {
+      result.setLength(result.length() - 1); // removes extra new line character
+    }
+    return result.toString();
+  }
+	
+  /**
+   * Performs a pre-order traversal of the trie and builds a StringBuilder
+   * object passed in by reference
+   * @param node The current node being traversed
+   * @param currentWord The current word built by the position in the trie
+   * @param result The StringBuilder object being modified
+   */
+  private void preOrderTraversalValues(Node node, StringBuilder currentWord,
+        StringBuilder result) {
+    if (node.value != 0) {
+      result.append(node.value);
+      result.append('\n');
+    }
+    for (int i = 0; i < node.nodes.length; i++) {
+      if (node.nodes[i] != null) {
+        StringBuilder nextCurrentWord = new StringBuilder(currentWord);
+        char c = (char)('a' + i);
+        nextCurrentWord.append(c);
+        preOrderTraversalValues(node.nodes[i], nextCurrentWord, result);
+      }
+    }
+  }
+
+
+// ------------------------------------------------------------
 
   /** Checks for equality through wordCount and nodeCount, and if equal,
     * iterates through the trie to check node equality.
@@ -110,13 +158,18 @@ public class Trie implements ITrie {
     if (otherTrie.wordCount != this.wordCount) {
       return false;
     }
-    return trieCompare(this.root, otherTrie.root);
+    String one = this.toStringValues();
+    String two = otherTrie.toStringValues();
+    if (one.equals(two)) {
+      return true;
+    }
+    return false;
   }
 
   private boolean trieCompare(Node original, Node other) {
     for (int i = 0; i < original.nodes.length; i++) {
       // are nodes equal?
-      if (original.value != other.value) {
+      if (!original.equals(other)) {
         return false;
       }
       // are either null when the other isn't?
