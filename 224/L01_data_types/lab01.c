@@ -7,33 +7,6 @@
 
 int main(void)
 {
-    signed char biggest_char, next_char; // POSITIVE S CHAR
-	lab01_init();
-
-	unsigned char biggest_uchar, next_uchar; // POSITIVE U CHAR
-	lab01_init();
-
-	signed char neg_char, next_neg_char; // NEGATIVE CHAR
-	lab01_init();
-
-	signed int biggest_int, next_int; // POSITIVE S INT
-	lab01_init();
-
-	unsigned int biggest_uint, next_uint; // POSITIVE U INT
-	lab01_init();
-
-	signed int neg_int, next_neg_int; // NEGATIVE INT
-	lab01_init();
-
-	signed long int biggest_lint, next_lint; // POSITIVE S LONG INT
-	lab01_init();
-
-	unsigned long int biggest_ulint, next_ulint; // POSITIVE U LONG INT
-	lab01_init();
-
-	signed long int neg_lint, next_neg_lint; // NEGATIVE LONG INT
-	lab01_init();
-
   	// TERMINAL1("Signed int: 21000 + 200 = %d", 21000 + 200);
 	// TERMINAL3("Largest Q4.4 = %f (0x%2x)", (((long)biggest_char)/16.0), biggest_char);
 
@@ -41,6 +14,10 @@ int main(void)
 	 */
 
 	TERMINAL("\n\r-----------------------------------\n\n\r*** CHAR ***\n");
+
+  signed char biggest_char, next_char; // POSITIVE S CHAR
+	signed char neg_char, next_neg_char; // NEGATIVE CHAR
+	unsigned char biggest_uchar, next_uchar; // POSITIVE U CHAR
 
   next_char = 1;						// Positive S char
   biggest_char = 1;
@@ -76,6 +53,10 @@ int main(void)
 	/**INT-------------------------------------------------------------------
 	 */
 
+	signed int biggest_int, next_int; // POSITIVE S INT
+	unsigned int biggest_uint, next_uint; // POSITIVE U INT
+	signed int neg_int, next_neg_int; // NEGATIVE INT
+
 	TERMINAL("\n\n\r*** INT ***\n");
 
     next_int = 1;						// Positive S int
@@ -108,6 +89,9 @@ int main(void)
 	/*LONG-------------------------------------------------------------------
 	 */
 
+	signed long int biggest_lint, next_lint; // POSITIVE S LONG INT
+	unsigned long int biggest_ulint, next_ulint; // POSITIVE U LONG INT
+	signed long int neg_lint, next_neg_lint; // NEGATIVE LONG INT
 	TERMINAL("\n\n\r*** LONG ***\n");
 
 	next_lint = 1;						// Positive S long int

@@ -1,5 +1,5 @@
 all:
-	javac -d bin/ src/*.java
+	javac -d bin src/spell/*.java
 
 clean:
 	rm bin/*.class
