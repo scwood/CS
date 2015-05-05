@@ -22,6 +22,14 @@ public class SpellCorrector implements ISpellCorrector {
     scanner.close();
   }
 
+  public void checkDictEquality(SpellCorrector other) {
+    if (trie.equals(other.trie)) {
+      System.out.println("dicts equal");
+      return; 
+    }
+    System.out.println("dicts unequal");
+  }
+
   public String suggestSimilarWord(String inputWord) throws NoSimilarWordFoundException {
     if (trie.find(inputWord) != null) {
       return inputWord;
@@ -114,6 +122,11 @@ public class SpellCorrector implements ISpellCorrector {
     Collections.sort(finalWords);
     String result = (finalWords.size() > 0) ? finalWords.get(0) : "";
     return result;
+  }
+
+  @Override
+  public String toString() {
+    return trie.toString();
   }
 
 }

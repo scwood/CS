@@ -80,14 +80,13 @@ public class Trie implements ITrie {
       result.append('\n');
     }
     for (int i = 0; i < node.nodes.length; i++) {
-      if (node.nodes[i] == null) {
+      if (node.nodes[i] != null) {
         StringBuilder nextCurrentWord = new StringBuilder(currentWord);
         char c = (char)('a' + i);
         nextCurrentWord.append(c);
         preOrderTraversal(node.nodes[i], nextCurrentWord, result);
       }
     }
-
   }
 
   /** Checks for equality through wordCount and nodeCount, and if equal,
@@ -116,12 +115,14 @@ public class Trie implements ITrie {
 
   private boolean trieCompare(Node original, Node other) {
     for (int i = 0; i < original.nodes.length; i++) {
+      if (!original.equals(other)) {
+        return false;
+      }
       if ((original.nodes[i] == null && other.nodes[i] != null) || 
           (original.nodes[i] != null && other.nodes[i] == null)) {
         return false;
       }
-      if ((original.nodes[i] != null && other.nodes[i] != null) &&
-          (original.nodes[i].equals(other.nodes[i]))) {
+      if (original.nodes[i] != null && other.nodes[i] != null) {
         return trieCompare(original.nodes[i], other.nodes[i]);
       }
     }
