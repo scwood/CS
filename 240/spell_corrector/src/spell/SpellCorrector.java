@@ -47,6 +47,7 @@ public class SpellCorrector implements ISpellCorrector {
     if (correctedWords.size() != 0) {
       return getMostSimilarWord();
     } 
+    clearLists();
     throw new NoSimilarWordFoundException();
   }
 
@@ -100,10 +101,10 @@ public class SpellCorrector implements ISpellCorrector {
   }
 
   private void unionWordWithLists(String word) {
-    if (trie.find(word) == null) {
-      editedWords.add(word);
-    } else { 
+    if (trie.find(word) != null) {
       correctedWords.add(word);
+    } else { 
+      editedWords.add(word);
     }
   }
 
@@ -120,8 +121,14 @@ public class SpellCorrector implements ISpellCorrector {
       }
     }
     Collections.sort(finalWords);
-    String result = (finalWords.size() > 0) ? finalWords.get(0) : "";
+    String result = new String(finalWords.get(0));
+    clearLists();
     return result;
+  }
+
+  public void clearLists() {
+    editedWords.clear();
+    correctedWords.clear();
   }
 
   @Override
