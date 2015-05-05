@@ -115,13 +115,16 @@ public class Trie implements ITrie {
 
   private boolean trieCompare(Node original, Node other) {
     for (int i = 0; i < original.nodes.length; i++) {
-      if (!original.equals(other)) {
+      // are nodes equal?
+      if (original.value != other.value) {
         return false;
       }
+      // are either null when the other isn't?
       if ((original.nodes[i] == null && other.nodes[i] != null) || 
           (original.nodes[i] != null && other.nodes[i] == null)) {
         return false;
       }
+      // if they're both not null, do the recursive call
       if (original.nodes[i] != null && other.nodes[i] != null) {
         return trieCompare(original.nodes[i], other.nodes[i]);
       }
