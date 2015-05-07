@@ -1,0 +1,40 @@
+package listem;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+public abstract class FileScanner {
+  
+  public void processDir (File dir, String filePattern, String pattern, 
+      boolean recursive) {
+    
+    if (!dir.canRead()) {
+      System.out.println("Directory unreadble.");
+      
+    } else if (dir.isFile()) {
+      System.out.println("Not a directory");
+      
+    } else if (!recursive) {
+      File[] files = dir.listFiles();
+      for (File f : files) {
+        if (f.isDirectory()) {
+          continue;
+        }
+        try(FileReader fileReader = new FileReader(f);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);) {
+          String line = bufferedReader.readLine();
+          while (line != null) {
+            processLine(line);
+          }
+        } catch (IOException ex) {
+          ex.printStackTrace();
+        } 
+      }
+    }
+  }
+  
+  abstract void processLine();
+  
+}

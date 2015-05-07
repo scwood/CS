@@ -1,0 +1,60 @@
+package listem;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public abstract class FileScanner {
+  
+  public void processDir (File dir, String filePattern, boolean recursive) {
+    
+    if (!dir.canRead()) {
+      System.out.println("Directory unreadble.");
+      
+    } else if (dir.isFile()) {
+      System.out.println("Not a directory");
+      
+    } else if (recursive) {
+      
+      // TODO: handle recursive flag
+
+    } else {
+      File[] files = dir.listFiles();
+      processFiles(files, filePattern);
+    }
+  }
+  
+  public void processFiles(File[] files, String pattern) {
+
+    Pattern fileRegex = Pattern.compile(pattern);
+    Matcher fileMatcher = null;
+
+    for (File f : files) {
+      fileMatcher = fileRegex.matcher(f.getName());
+      if (f.isFile() && fileMatcher.matches()) {
+
+        try(FileReader fileReader = new FileReader(f);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);) {
+
+          String line = bufferedReader.readLine();
+          while (line != null) {
+            processLine(line);
+            line = bufferedReader.readLine();
+          }
+        } catch (IOException ex) {
+          ex.printStackTrace();
+        } 
+      }
+    }
+  }
+  
+  public void recursiveProcessFiles(File[] files, String pattern) {
+    
+  }
+  
+  abstract void processLine(String filePath, String line);
+  
+}

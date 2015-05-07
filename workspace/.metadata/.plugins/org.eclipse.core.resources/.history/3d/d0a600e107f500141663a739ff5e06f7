@@ -1,0 +1,22 @@
+package listem;
+
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+
+public class Grep extends FileScanner implements IGrep {
+
+  @Override
+  public Map<File, List<String>> grep(File directory,
+      String fileSelectionPattern, String substringSelectionPattern,
+      boolean recursive) {
+    return null;
+  }
+
+  @Override
+  void processLine(String line) {
+    // TODO Auto-generated method stub
+    
+  }
+  
+}

@@ -1,0 +1,15 @@
+package listem;
+
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+
+public class Grep implements IGrep {
+
+  public Map<File, List<String>> grep(File directory,
+        String fileSelectionPattern, boolean recursive) {
+    Map<File, List<String>> map;
+    return map;
+  }
+
+}
