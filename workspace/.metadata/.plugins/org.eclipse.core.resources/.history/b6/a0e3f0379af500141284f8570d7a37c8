@@ -32,7 +32,7 @@ public abstract class FileScanner {
       fileMatcher = fileRegex.matcher(f.getName());
       if (recursive && f.isDirectory()) {
         processFiles(f.listFiles(), pattern, recursive);
-      } else if (fileMatcher.matches() && f.isFile()) {
+      } else if (fileMatcher.matches()) {
         try(FileReader fileReader = new FileReader(f);
             BufferedReader bufferedReader = new BufferedReader(fileReader);) {
           String line = bufferedReader.readLine();
