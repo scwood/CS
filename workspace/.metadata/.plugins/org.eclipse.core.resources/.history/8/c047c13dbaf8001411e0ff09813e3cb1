@@ -84,14 +84,14 @@ public class EvilHangmanGame implements IEvilHangmanGame {
     char guessChar = '\0';
     System.out.print("Enter guess: ");
     guessString = inputScanner.nextLine();
-    if (guessString.isEmpty()) guessString = "bad"; // if enter is pushed
-    guessChar = guessString.charAt(0);
+    System.out.println(guessString);
+//    guessChar = guessString.charAt(0);
     while (guessString.length() > 1 || !Character.isLetter(guessChar)) {
       System.err.println("Error: guess must be a single valid letter");
       System.out.print("Enter guess: ");
       guessString = inputScanner.nextLine();
-      if (guessString.isEmpty()) guessString = "bad";
-      guessChar = guessString.charAt(0);
+      System.out.println(guessString);
+//      guessChar = guessString.charAt(0);
     }
     return Character.toLowerCase(guessChar);
   }

@@ -163,13 +163,13 @@ public class EvilHangmanGame implements IEvilHangmanGame {
   }
 
   private void pickMostEvilSet(Map<String, HashSet<String>> wordPartitions) {
-//    System.out.println(wordPartitions.toString());
+    System.out.println(wordPartitions.toString());
     wordPartitions = trimMapOnSize(wordPartitions);
     wordPartitions = trimMapOnContents(wordPartitions);
     wordPartitions = trimMapOnPosition(wordPartitions);
     updatePattern(wordPartitions.entrySet().iterator().next().getKey());
     wordList = wordPartitions.entrySet().iterator().next().getValue();
-//    System.out.println(wordPartitions.toString());
+    System.out.println(wordPartitions.toString());
   }
   
   private Map<String, HashSet<String>> trimMapOnSize(Map<String, 

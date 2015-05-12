@@ -2,8 +2,6 @@ package hangman;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -83,14 +81,12 @@ public class EvilHangmanGame implements IEvilHangmanGame {
     String guessString = "";
     char guessChar = '\0';
     System.out.print("Enter guess: ");
-    guessString = inputScanner.nextLine();
-    if (guessString.isEmpty()) guessString = "bad"; // if enter is pushed
+    guessString = inputScanner.next();
     guessChar = guessString.charAt(0);
     while (guessString.length() > 1 || !Character.isLetter(guessChar)) {
       System.err.println("Error: guess must be a single valid letter");
       System.out.print("Enter guess: ");
-      guessString = inputScanner.nextLine();
-      if (guessString.isEmpty()) guessString = "bad";
+      guessString = inputScanner.next();
       guessChar = guessString.charAt(0);
     }
     return Character.toLowerCase(guessChar);
@@ -108,9 +104,8 @@ public class EvilHangmanGame implements IEvilHangmanGame {
   private void printGameResult() {
     if (currentPattern.contains("-")) {
       System.out.println("You lose!");
-      Object[] endWords = wordList.toArray();
-      Collections.shuffle(Arrays.asList(endWords));
-      System.out.printf("The word was: %s\n", (String)endWords[0]);
+      String word = (String)wordList.toArray()[0];
+      System.out.printf("The word was: %s\n", word);
     } else {
       System.out.println("You win!");
       System.out.printf("The word was: %s\n", currentPattern);
@@ -163,13 +158,13 @@ public class EvilHangmanGame implements IEvilHangmanGame {
   }
 
   private void pickMostEvilSet(Map<String, HashSet<String>> wordPartitions) {
-//    System.out.println(wordPartitions.toString());
+    System.out.println(wordPartitions.toString());
     wordPartitions = trimMapOnSize(wordPartitions);
     wordPartitions = trimMapOnContents(wordPartitions);
     wordPartitions = trimMapOnPosition(wordPartitions);
     updatePattern(wordPartitions.entrySet().iterator().next().getKey());
     wordList = wordPartitions.entrySet().iterator().next().getValue();
-//    System.out.println(wordPartitions.toString());
+    System.out.println(wordPartitions.toString());
   }
   
   private Map<String, HashSet<String>> trimMapOnSize(Map<String, 
@@ -217,9 +212,9 @@ public class EvilHangmanGame implements IEvilHangmanGame {
         lowestCount = currentCount;
         temp.put(key, value);
       } else if (currentCount < lowestCount) {
-        lowestCount = currentCount;
         temp.clear();
         temp.put(key, value);
+        lowestCount = currentCount;
       } else if (currentCount == lowestCount) {
         temp.put(key, value);
       }
