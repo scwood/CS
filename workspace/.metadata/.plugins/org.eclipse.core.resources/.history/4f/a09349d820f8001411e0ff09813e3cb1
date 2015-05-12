@@ -1,0 +1,45 @@
+package hangman;
+
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
+
+public class EvilHangmanGame implements IEvilHangmanGame {
+  
+  private String currentPattern = null;
+  private File wordList = null;
+  private Set<String> guesses = new HashSet<String>();
+  
+  private void trimWordsBySize(int wordLength) {
+    // TODO: implement
+  }
+  
+  private void generateBlankPattern(int wordLength) {
+    StringBuilder pattern = new StringBuilder();
+    for (int i = 0; i < wordLength; i++) {
+      pattern.append("-");
+    }
+    currentPattern = pattern.toString();
+  }
+  
+  @Override
+  public void startGame(File dictionary, int wordLength) {
+    clear();
+    wordList = dictionary;
+    trimWordsBySize(wordLength);
+    generateBlankPattern(wordLength);
+  }
+
+  @Override
+  public Set<String> makeGuess(char guess) throws GuessAlreadyMadeException {
+    // TODO Auto-generated method stub
+    return null;
+  }
+  
+  private void clear() {
+    currentPattern = null;
+    wordList = null;
+    guesses.clear();
+  }
+
+}

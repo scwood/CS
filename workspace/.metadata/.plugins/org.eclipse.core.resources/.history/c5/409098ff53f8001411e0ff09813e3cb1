@@ -1,0 +1,185 @@
+package hangman;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+public class EvilHangmanGame implements IEvilHangmanGame {
+  
+  private int numberOfGuesses = 0;
+  private int wordLength = 0;
+  private String currentPattern = null;
+  private Set<Character> guessList = new HashSet<Character>();
+  private Set<String> wordList = new HashSet<String>();
+  
+  // initialization
+  
+  @Override
+  public void startGame(File dictionary, int wordLength) {
+    clear();
+    this.wordLength = wordLength;
+    StringBuilder pattern = new StringBuilder();
+    for (int i = 0; i < wordLength; i++) {
+      pattern.append("-");
+    }
+    currentPattern = pattern.toString();
+    generateWordList(dictionary);
+  }
+  
+  private void generateWordList(File dictionary) {
+    String word = null;
+    try (Scanner scanner = new Scanner(dictionary)) {
+      while (scanner.hasNext()) {
+        word = scanner.next();
+        if (word.length() == wordLength) {
+          wordList.add(word);
+        }
+      }
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private void clear() {
+    numberOfGuesses = 0;
+    wordLength = 0;
+    currentPattern = null;
+    guessList.clear();
+    wordList.clear();
+  }
+
+  // playing the game
+
+  public void playGame(int numberOfGuesses) {
+    this.numberOfGuesses = numberOfGuesses;
+    Scanner inputScanner = new Scanner(System.in);
+    drawGame();
+    while (numberOfGuesses > 0 && currentPattern.contains("-")) {
+      try {
+        wordList = makeGuess(getGuess(inputScanner));
+        System.out.println();
+        drawGame();
+      } catch (GuessAlreadyMadeException e) {
+        System.err.println("Error: you have already guessed that character");
+      }
+    }
+    inputScanner.close();
+  }
+  
+  private char getGuess(Scanner inputScanner) {
+    String guessString = "";
+    char guessChar = '\0';
+    System.out.print("Enter guess: ");
+    guessString = inputScanner.next();
+    guessChar = guessString.charAt(0);
+    while (guessString.length() > 1 || !Character.isLetter(guessChar)) {
+      System.err.println("Error: guess must be a single valid letter");
+      System.out.print("Enter guess: ");
+      guessString = inputScanner.next();
+      guessChar = guessString.charAt(0);
+    }
+    return Character.toLowerCase(guessChar);
+  }
+
+  private void drawGame() {
+    System.out.printf("You have %d guesses left\n", numberOfGuesses);
+    System.out.print("Used letters: ");
+    for (Character c : guessList) {
+      System.out.print(c + " ");
+    }
+    System.out.printf("\nWord: %s\n", currentPattern);
+  }
+
+  // partitioning the words
+
+  // playing the game
+  // playing the game
+  // playing the game
+  // playing the game
+  // playing the game
+  @Override
+  public Set<String> makeGuess(char guess) throws GuessAlreadyMadeException {
+    Map<String, HashSet<String>> map = new HashMap<String, HashSet<String>>();
+    if (guessList.contains(guess)) {
+      throw new GuessAlreadyMadeException();
+    }
+    guessList.add(guess);
+    String pattern = null;
+    for (String word : wordList) {
+      pattern = makePattern(word, guess);
+      if (!map.containsKey(pattern)) {
+        HashSet<String> wordPartition = new HashSet<String>();
+        wordPartition.add(word);
+        map.put(pattern, wordPartition);
+      } else {
+        HashSet<String> wordPartition = map.get(pattern);
+        wordPartition.add(word);
+        map.put(pattern, wordPartition);
+      }
+    }
+    pickMostEvilSet(map);
+    return wordList;
+  }
+  
+  private String makePattern(String word, char guess) {
+    StringBuilder pattern = new StringBuilder();
+    for (char c : word.toCharArray()) {
+      if (c == guess) {
+        pattern.append(c);
+      } else {
+        pattern.append('-');
+      }
+    }
+    return pattern.toString();
+  }
+
+  private void pickMostEvilSet(Map<String, HashSet<String>> map) {
+    System.out.println(map.toString());
+    Map<String, HashSet<String>> temp = new HashMap<String, HashSet<String>>();
+    int currentMax = 0;
+    String key = null;
+    HashSet<String> value = null;
+    for (Map.Entry<String, HashSet<String>> instance : map.entrySet()) {
+      key = instance.getKey();
+      value = instance.getValue();
+      if (value.size() > currentMax) {
+        temp.clear();
+        currentMax = value.size();
+        temp.put(key, value);
+      } else if (value.size() == currentMax) {
+        temp.put(key, value);
+      }
+    }
+    if (temp.size() == 1) {
+      System.out.println(temp.toString());
+      updatePattern(temp.entrySet().iterator().next().getKey());
+      wordList = temp.entrySet().iterator().next().getValue();
+    }
+  }
+  
+  private void updatePattern(String pattern) {
+    StringBuilder originalPattern = new StringBuilder(currentPattern);
+    StringBuilder newPattern = new StringBuilder(pattern);
+    StringBuilder result = new StringBuilder();
+    for (int i = 0; i < pattern.length(); i++) {
+      if (originalPattern.charAt(i) == newPattern.charAt(i)) {
+        result.append(originalPattern.charAt(i));
+      } else if (originalPattern.charAt(i) != '-') {
+        result.append(originalPattern.charAt(i));
+      } else {
+        result.append('-');
+      }
+    }
+    currentPattern = result.toString();
+  }
+  
+  // TODO for tie breaker make a second map to put max and ties in, if new max
+  // found than clear and add new one
+  // use compareto for finding rightmost letter tiebreaker, greater is 
+  // rightmost (maybe)
+
+}

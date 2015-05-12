@@ -1,0 +1,20 @@
+package hangman;
+
+import java.io.File;
+
+public class RunGame {
+  
+  public static void main(String[] args) {
+    if (args.length < 3) {
+      System.out.println("usage: java RunGame dictionary wordLength guesses");
+      return;
+    }
+    String dictionaryName = args[0];
+    int wordLength = Integer.parseInt(args[1]);
+    int numberOfGuesses = Integer.parseInt(args[2]);
+    EvilHangmanGame game = new EvilHangmanGame();
+    game.startGame(new File(dictionaryName), wordLength);
+    game.playGame(numberOfGuesses);
+  }
+  
+}

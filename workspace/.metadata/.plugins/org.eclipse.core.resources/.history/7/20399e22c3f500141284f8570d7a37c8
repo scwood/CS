@@ -1,0 +1,59 @@
+package listem;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public abstract class FileScanner {
+  
+  private Map<File, Object> fileMap;
+  
+  public void processDir (File dir, String filePattern, boolean recursive) {
+
+    if (!dir.canRead()) {
+      System.out.println("Directory unreadble.");
+      
+    } else if (dir.isFile()) {
+      System.out.println("Not a directory");
+      
+    } else {
+      File[] files = dir.listFiles();
+      processFiles(files, filePattern, recursive);
+    }
+  }
+  
+  public void processFiles(File[] files, String pattern, boolean recursive) {
+
+    Pattern fileRegex = Pattern.compile(pattern);
+    Matcher fileMatcher = null;
+
+    for (File f : files) {
+      fileMatcher = fileRegex.matcher(f.getName());
+      if (recursive && f.isDirectory()) {
+        processFiles(f.listFiles(), pattern, recursive);
+      } else if (fileMatcher.matches() && f.isFile()) {
+        try(FileReader fileReader = new FileReader(f);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);) {
+          String line = bufferedReader.readLine();
+          while (line != null) {
+            processLine(f, line);
+            line = bufferedReader.readLine();
+          }
+        } catch (IOException ex) {
+          ex.printStackTrace();
+        } 
+      }
+    }
+  }
+  
+  public void clear() {
+    fileMap.clear();
+  }
+  
+  abstract void processLine(File file, String line);
+  
+}

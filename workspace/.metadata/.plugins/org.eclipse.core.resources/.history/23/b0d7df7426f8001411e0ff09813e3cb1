@@ -1,0 +1,63 @@
+package hangman;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+public class EvilHangmanGame implements IEvilHangmanGame {
+  
+  private int numberOfGuesses = 0;
+  private int wordLength = 0;
+  private String currentPattern = null;
+  private List<String> guessList = new ArrayList<String>();
+  private Set<String> wordList = new HashSet<String>();
+  
+  @Override
+  public void startGame(File dictionary, int wordLength) {
+    clear();
+    this.wordLength = wordLength;
+    generateBlankPattern();
+    generateWordList(dictionary);
+  }
+  
+  private void generateWordList(File dictionary) {
+    String word = null;
+    try (Scanner scanner = new Scanner(dictionary)) {
+      while (scanner.hasNext()) {
+        word = scanner.next();
+        if (word.length() == wordLength) {
+          wordList.add(word);
+        }
+      }
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private void generateBlankPattern() {
+    StringBuilder pattern = new StringBuilder();
+    for (int i = 0; i < wordLength; i++) {
+      pattern.append("-");
+    }
+    currentPattern = pattern.toString();
+  }
+
+  @Override
+  public Set<String> makeGuess(char guess) throws GuessAlreadyMadeException {
+    // TODO Auto-generated method stub
+    return null;
+  }
+  
+  private void clear() {
+    numberOfGuesses = 0;
+    wordLength = 0;
+    currentPattern = null;
+    guessList.clear();
+    wordList.clear();
+  }
+
+}

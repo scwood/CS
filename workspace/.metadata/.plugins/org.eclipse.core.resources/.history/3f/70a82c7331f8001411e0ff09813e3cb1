@@ -1,0 +1,28 @@
+package hangman;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
+public class RunGame {
+  
+  public static void main(String[] args) {
+    if (args.length < 3) {
+      System.out.println("usage: java RunGame dictionary wordLength guesses");
+      return;
+    }
+    String dictionaryName = args[0];
+    try {
+      
+    } catch (FileNotFoundException e) {
+      System.err.println("dictionary file can't be read");
+    }
+    int wordLength = 0;
+    int numberOfGuesses = 0;
+    wordLength = Integer.parseInt(args[1]);
+    numberOfGuesses = Integer.parseInt(args[2]);
+    EvilHangmanGame game = new EvilHangmanGame();
+    game.startGame(new File(dictionaryName), wordLength);
+    game.playGame(numberOfGuesses);
+  }
+  
+}

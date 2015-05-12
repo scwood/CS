@@ -1,0 +1,41 @@
+package hangman;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+public class EvilHangmanGame implements IEvilHangmanGame {
+  
+  private String currentPattern = null;
+  private List<String> guessList = new ArrayList<String>();
+  int numberOfGuesses = 0;
+  private List<String> wordList = new ArrayList<String>();
+  
+  @Override
+  public void startGame(File dictionary, int wordLength) {
+    clear();
+    generateBlankPattern(wordLength);
+  }
+
+  private void generateBlankPattern(int wordLength) {
+    StringBuilder pattern = new StringBuilder();
+    for (int i = 0; i < wordLength; i++) {
+      pattern.append("-");
+    }
+    currentPattern = pattern.toString();
+  }
+
+  @Override
+  public Set<String> makeGuess(char guess) throws GuessAlreadyMadeException {
+    // TODO Auto-generated method stub
+    return null;
+  }
+  
+  private void clear() {
+    currentPattern = null;
+    guessList.clear();
+    numberOfGuesses = 0;
+    wordList = null;
+  }
+
+}
