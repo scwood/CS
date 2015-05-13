@@ -1,0 +1,2 @@
+e/a/y in dict with yea
+car and car car to check for equality
