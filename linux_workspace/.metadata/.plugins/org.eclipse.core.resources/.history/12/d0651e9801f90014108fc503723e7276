@@ -1,0 +1,160 @@
+package spell;
+
+public class Trie implements ITrie {
+  
+  private int nodeCount = 1;
+  private int wordCount = 0;
+  private Node root = new Node();
+  
+  // basics
+
+  @Override
+  public void add(String word) {
+    word = word.toLowerCase();
+    Node currentNode = root;
+    for (char c : word.toCharArray()) {
+      int index = c - 'a';
+      if (currentNode.alphabet[index] == null) {
+        currentNode.alphabet[index] = new Node();
+        nodeCount++;
+      }
+      currentNode = currentNode.alphabet[index];
+    }
+    if (currentNode.frequency == 0) {
+      wordCount++;
+    }
+    currentNode.incramentFrequency();
+  }
+
+  @Override
+  public ITrie.INode find(String word) {
+    word = word.toLowerCase();
+    Node currentNode = root;
+    for (char c : word.toCharArray()) {
+      int index = c -'a';
+      if (currentNode.alphabet[index] == null) {
+        return null;
+      }
+      currentNode = currentNode.alphabet[index];
+    }
+    if (currentNode.frequency == 0) { 
+      return null;
+    }
+    return currentNode;
+  }
+  
+  @Override
+  public int getWordCount() {
+    return wordCount;
+  }
+
+  @Override
+  public int getNodeCount() {
+    return nodeCount;
+  }
+  
+  // toString 
+
+  @Override
+  public String toString() {
+    StringBuilder currentWord = new StringBuilder();
+    StringBuilder result = new StringBuilder();
+    buildToString(root, currentWord, result);
+    if (result.length() > 0) {
+      result.setLength(result.length() - 1);
+    }
+    return result.toString();
+  }
+  
+  private void buildToString(Node node, StringBuilder currentWord,
+      StringBuilder result) {
+    if (node.frequency != 0) {
+      result.append(currentWord);
+      result.append('\n');
+    }
+    for (int i = 0; i < node.alphabet.length; i++) {
+      if (node.alphabet[i] != null) {
+        StringBuilder nextCurrentWord = new StringBuilder(currentWord);
+        nextCurrentWord.append((char)('a' + i));
+        buildToString(node.alphabet[i], nextCurrentWord, result);
+      }
+    }
+  }
+
+  // equals 
+  
+  @Override
+  public boolean equals(Object o) {
+    if (o == null) {
+      return false;
+    }
+    if (o.getClass() != this.getClass()) {
+      return false;
+    }
+    if (o == this) {
+      return true;
+    }
+    System.out.println("hello");
+    Trie other = (Trie)o;
+    if (other.wordCount != this.wordCount) {
+      return false;
+    }
+    if (other.nodeCount != this.wordCount) {
+      return false;
+    }
+    String frequencies = this.frequenciesToString();
+    String otherFrequencies = other.frequenciesToString();
+    if (frequencies.equals(otherFrequencies)) {
+      return true;
+    }
+    return false;
+  }
+  
+  public String frequenciesToString() {
+    StringBuilder currentWord = new StringBuilder();
+    StringBuilder result = new StringBuilder();
+    buildFrequenciesToString(root, currentWord, result);
+    if (result.length() > 0) {
+      result.setLength(result.length() - 1);
+    }
+    return result.toString();
+  }
+  
+  private void buildFrequenciesToString(Node node, StringBuilder currentWord,
+      StringBuilder result) {
+    if (node.frequency != 0) {
+      result.append(node.frequency);
+      result.append('\n');
+    }
+    for (int i = 0; i < node.alphabet.length; i++) {
+      if (node.alphabet[i] != null) {
+        StringBuilder nextCurrentWord = new StringBuilder(currentWord);
+        nextCurrentWord.append((char)('a' + i));
+        buildToString(node.alphabet[i], nextCurrentWord, result);
+      }
+    }
+  }
+  
+  // other
+
+  @Override
+  public int hashCode() {
+    final int PRIME_NUMBER = 31;
+    return (wordCount + nodeCount) * PRIME_NUMBER;
+  }
+  
+  public class Node implements ITrie.INode {
+    
+    private int frequency = 0;
+    private Node[] alphabet = new Node[26];
+    
+    public int getValue() {
+      return frequency;
+    }
+    
+    public void incramentFrequency() {
+      frequency++;
+    }
+  }
+
+}

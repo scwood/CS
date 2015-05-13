@@ -1,0 +1,41 @@
+package spell;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class SpellCorrector implements ISpellCorrector {
+  
+  public Trie dictionary = new Trie();
+  private ArrayList<String> editedWords = new ArrayList<String>();
+  private ArrayList<String> correctedWords = new ArrayList<String>();
+
+  // initialization
+
+  @Override
+  public void useDictionary(String dictionaryFileName) throws IOException {
+    clear();
+    File dictionaryFile = new File(dictionaryFileName);
+    Scanner scanner = new Scanner(dictionaryFile);
+    while (scanner.hasNext()) {
+      dictionary.add(scanner.next());
+    }
+    scanner.close();
+  }
+  
+  private void clear() {
+    editedWords.clear();
+    correctedWords.clear();
+  }
+
+  // spell correcting
+
+  @Override
+  public String suggestSimilarWord(String inputWord)
+      throws NoSimilarWordFoundException {
+    // TODO Auto-generated method stub
+    return "";
+  }
+
+}

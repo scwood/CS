@@ -1,0 +1,125 @@
+package spell;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class SpellCorrector implements ISpellCorrector {
+  
+  public Trie dictionary = new Trie();
+  private ArrayList<String> editedWords = new ArrayList<String>();
+  private ArrayList<String> correctedWords = new ArrayList<String>();
+
+  // initialization
+
+  @Override
+  public void useDictionary(String dictionaryFileName) throws IOException {
+    File dictionaryFile = new File(dictionaryFileName);
+    Scanner scanner = new Scanner(dictionaryFile);
+    while (scanner.hasNext()) {
+      dictionary.add(scanner.next());
+    }
+    scanner.close();
+  }
+  
+  private void clearWordLists() {
+    editedWords.clear();
+    correctedWords.clear();
+  }
+
+  // spell correcting
+
+  @Override
+  public String suggestSimilarWord(String inputWord)
+      throws NoSimilarWordFoundException {
+    clearWordLists();
+    if (dictionary.find(inputWord) != null) {
+      return inputWord;
+    }
+    calculatePossibleSuggestions(inputWord);
+    if (correctedWords.size() > 0) {
+      return getMostSimilarWord();
+    }
+    Object[] editDistanceOneWords = editedWords.toArray();
+    for (Object o : editDistanceOneWords) {
+      calculatePossibleSuggestions((String)o);
+    }
+    if (correctedWords.size() > 0) {
+      return getMostSimilarWord();
+    }
+    throw new NoSimilarWordFoundException();
+  }
+
+  private void calculatePossibleSuggestions(String word) {
+    generateDeletionWords(word);
+    generateTranspositionWords(word);
+    generateAlterationWords(word);
+    generateInsertionWords(word);
+  }
+  
+  private void generateDeletionWords(String word) {
+    for (int i = 0; i < word.length(); i++) {
+      StringBuilder editedWord = new StringBuilder(word);
+      editedWord.deleteCharAt(i);
+      unionWordWithLists(editedWord.toString());
+    }
+  }
+
+  private void generateTranspositionWords(String word) {
+    for (int i = 0; i < word.length() - 1; i++) {
+      StringBuilder editedWord = new StringBuilder(word);
+      char temp = editedWord.charAt(i);
+      editedWord.setCharAt(i, editedWord.charAt(i + 1));
+      editedWord.setCharAt(i + 1, temp);
+      unionWordWithLists(editedWord.toString());
+    }
+  }
+  
+  private void generateAlterationWords(String word) {
+    System.out.println(word);
+    for (int i = 0; i < word.length(); i++) {
+      for (int j = 0; j < 26; i++) {
+        StringBuilder editedWord = new StringBuilder(word);
+        editedWord.setCharAt(i, (char)('a' + j));
+        unionWordWithLists(editedWord.toString());
+      }
+    }
+  }
+  
+  private void generateInsertionWords(String word) {
+    for (int i = 0; i < word.length(); i++) {
+      for (int j = 0; j < 26; j++) {
+        StringBuilder editedWord = new StringBuilder(word);
+        editedWord.insert(i,(char)('a' + j));
+        unionWordWithLists(editedWord.toString());
+      }
+    }
+  }
+  
+  private void unionWordWithLists(String word) {
+    if (dictionary.find(word) != null) {
+      correctedWords.add(word);
+    } else {
+      editedWords.add(word);
+    }
+  }
+  
+  private String getMostSimilarWord() {
+    ArrayList<String> finalWords = new ArrayList<String>();
+    int highestFrequency = 0;
+    for (String s : correctedWords) {
+      if (dictionary.find(s).getValue() > highestFrequency) {
+        highestFrequency = dictionary.find(s).getValue();
+        finalWords.clear();
+        finalWords.add(s);
+      } else if (dictionary.find(s).getValue() == highestFrequency) {
+        finalWords.add(s);
+      }
+    }
+    Collections.sort(finalWords);
+    return finalWords.get(0);
+  }
+
+}

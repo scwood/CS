@@ -1,0 +1,13 @@
+package spell;
+
+import java.io.IOException;
+
+public class TestTrie {
+  
+  public static void main(String[] args) throws IOException {
+    SpellCorrector corrector = new SpellCorrector();
+    corrector.useDictionary(args[0]);
+    System.out.println(corrector.dictionary.toString());
+  }
+
+}

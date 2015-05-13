@@ -5,10 +5,12 @@ public class Trie implements ITrie {
   private int nodeCount = 1;
   private int wordCount = 0;
   private Node root = new Node();
+  
+  // basics
 
   @Override
   public void add(String word) {
-    word.toLowerCase();
+    word = word.toLowerCase();
     Node currentNode = root;
     for (char c : word.toCharArray()) {
       int index = c - 'a';
@@ -25,12 +27,11 @@ public class Trie implements ITrie {
   }
 
   @Override
-  public INode find(String word) {
-    word.toLowerCase();
+  public ITrie.INode find(String word) {
+    word = word.toLowerCase();
     Node currentNode = root;
-    int index = 0;
     for (char c : word.toCharArray()) {
-      index = c -'a';
+      int index = c -'a';
       if (currentNode.alphabet[index] == null) {
         return null;
       }
@@ -42,7 +43,17 @@ public class Trie implements ITrie {
     return currentNode;
   }
   
-  // to string 
+  @Override
+  public int getWordCount() {
+    return wordCount;
+  }
+
+  @Override
+  public int getNodeCount() {
+    return nodeCount;
+  }
+  
+  // toString 
 
   @Override
   public String toString() {
@@ -55,15 +66,18 @@ public class Trie implements ITrie {
     return result.toString();
   }
   
-  private void buildToString(Node node, StringBuilder currentWord, StringBuilder result) {
+  private void buildToString(Node node, StringBuilder currentWord,
+      StringBuilder result) {
     if (node.frequency != 0) {
       result.append(currentWord);
       result.append('\n');
     }
-    for (int i = 0; i < 26; i++) {
-      StringBuilder nextCurrentWord = new StringBuilder(currentWord);
-      nextCurrentWord.append((char)('a' + i));
-      buildToString(node.alphabet[i], nextCurrentWord, result);
+    for (int i = 0; i < node.alphabet.length; i++) {
+      if (node.alphabet[i] != null) {
+        StringBuilder nextCurrentWord = new StringBuilder(currentWord);
+        nextCurrentWord.append((char)('a' + i));
+        buildToString(node.alphabet[i], nextCurrentWord, result);
+      }
     }
   }
 
@@ -71,26 +85,61 @@ public class Trie implements ITrie {
   
   @Override
   public boolean equals(Object o) {
+    if (o == null) {
+      return false;
+    }
+    if (o.getClass() != this.getClass()) {
+      return false;
+    }
+    if (o == this) {
+      return true;
+    }
+    Trie other = (Trie)o;
+    if (other.wordCount != this.wordCount) {
+      return false;
+    }
+    if (other.nodeCount != this.nodeCount) {
+      return false;
+    }
+    String frequencies = this.frequenciesToString();
+    String otherFrequencies = other.frequenciesToString();
+    if (frequencies.equals(otherFrequencies)) {
+      return true;
+    }
     return false;
   }
   
-  // easy
+  public String frequenciesToString() {
+    StringBuilder currentWord = new StringBuilder();
+    StringBuilder result = new StringBuilder();
+    buildFrequenciesToString(root, currentWord, result);
+    if (result.length() > 0) {
+      result.setLength(result.length() - 1);
+    }
+    return result.toString();
+  }
+  
+  private void buildFrequenciesToString(Node node, StringBuilder currentWord,
+      StringBuilder result) {
+    if (node.frequency != 0) {
+      result.append(node.frequency);
+      result.append('\n');
+    }
+    for (int i = 0; i < node.alphabet.length; i++) {
+      if (node.alphabet[i] != null) {
+        StringBuilder nextCurrentWord = new StringBuilder(currentWord);
+        nextCurrentWord.append((char)('a' + i));
+        buildFrequenciesToString(node.alphabet[i], nextCurrentWord, result);
+      }
+    }
+  }
+  
+  // other
 
   @Override
   public int hashCode() {
     final int PRIME_NUMBER = 31;
     return (wordCount + nodeCount) * PRIME_NUMBER;
-  }
-
-  
-  @Override
-  public int getWordCount() {
-    return wordCount;
-  }
-
-  @Override
-  public int getNodeCount() {
-    return nodeCount;
   }
   
   public class Node implements ITrie.INode {
@@ -102,10 +151,6 @@ public class Trie implements ITrie {
       return frequency;
     }
     
-    public int getFrequency() {
-      return frequency;
-    }
-
     public void incramentFrequency() {
       frequency++;
     }

@@ -11,7 +11,7 @@ public class CorrectWord {
       return;
     }
     String dictionaryFileName = args[0];
-    String inputWord = args[0].toLowerCase();
+    String inputWord = args[1].toLowerCase();
     SpellCorrector corrector = new SpellCorrector();
     try {
       corrector.useDictionary(dictionaryFileName);
