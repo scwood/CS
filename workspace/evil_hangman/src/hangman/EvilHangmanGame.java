@@ -273,6 +273,7 @@ public class EvilHangmanGame implements IEvilHangmanGame {
     }
     currentPattern = result.toString();
   }
+
   
   private void printTurnResult(String oldPattern, char guess) {
     StringBuilder backup = new StringBuilder(oldPattern);
