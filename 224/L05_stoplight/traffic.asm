@@ -42,37 +42,37 @@
 ;
 ;*******************************************************************************
 ;*******************************************************************************
-	            .cdecls  C,LIST,"msp430.h"      ; MSP430
+.cdecls  c,list,"msp430.h"      ; msp430
 
-	            .asg    "bis.b #0x08,&P4OUT",RED_ON
-	            .asg    "bic.b #0x08,&P4OUT",RED_OFF
-	            .asg    "xor.b #0x08,&P4OUT",RED_TOGGLE
-	            .asg    "bit.b #0x08,&P4OUT",RED_TEST
+.asg    "bis.b #0x08,&P4OUT",RED_ON
+.asg    "bic.b #0x08,&P4OUT",RED_OFF
+.asg    "xor.b #0x08,&P4OUT",RED_TOGGLE
+.asg    "bit.b #0x08,&P4OUT",RED_TEST
 
-	            .asg    "bis.b #0x04,&P4OUT",YELLOW_ON
-	            .asg    "bic.b #0x04,&P4OUT",YELLOW_OFF
-	            .asg    "xor.b #0x04,&P4OUT",YELLOW_TOGGLE
-	            .asg    "bit.b #0x04,&P4OUT",YELLOW_TEST
+.asg    "bis.b #0x04,&P4OUT",YELLOW_ON
+.asg    "bic.b #0x04,&P4OUT",YELLOW_OFF
+.asg    "xor.b #0x04,&P4OUT",YELLOW_TOGGLE
+.asg    "bit.b #0x04,&P4OUT",YELLOW_TEST
 
-	            .asg    "bis.b #0x02,&P4OUT",ORANGE_ON
-	            .asg    "bic.b #0x02,&P4OUT",ORANGE_OFF
-	            .asg    "xor.b #0x02,&P4OUT",ORANGE_TOGGLE
-	            .asg    "bit.b #0x02,&P4OUT",ORANGE_TEST
+.asg    "bis.b #0x02,&P4OUT",ORANGE_ON
+.asg    "bic.b #0x02,&P4OUT",ORANGE_OFF
+.asg    "xor.b #0x02,&P4OUT",ORANGE_TOGGLE
+.asg    "bit.b #0x02,&P4OUT",ORANGE_TEST
 
-	            .asg    "bis.b #0x01,&P4OUT",GREEN_ON
-	            .asg    "bic.b #0x01,&P4OUT",GREEN_OFF
-	            .asg    "xor.b #0x01,&P4OUT",GREEN_TOGGLE
-	            .asg    "bit.b #0x01,&P4OUT",GREEN_TEST
+.asg    "bis.b #0x01,&P4OUT",GREEN_ON
+.asg    "bic.b #0x01,&P4OUT",GREEN_OFF
+.asg    "xor.b #0x01,&P4OUT",GREEN_TOGGLE
+.asg    "bit.b #0x01,&P4OUT",GREEN_TEST
 
-	            .asg    "bis.b #0x40,&P4OUT",PED_RED_ON
-	            .asg    "bic.b #0x40,&P4OUT",PED_RED_OFF
-	            .asg    "xor.b #0x40,&P4OUT",PED_RED_TOGGLE
-	            .asg    "bit.b #0x40,&P4OUT",PED_RED_TEST
+.asg    "bis.b #0x40,&P4OUT",PED_RED_ON
+.asg    "bic.b #0x40,&P4OUT",PED_RED_OFF
+.asg    "xor.b #0x40,&P4OUT",PED_RED_TOGGLE
+.asg    "bit.b #0x40,&P4OUT",PED_RED_TEST
 
-	            .asg    "bis.b #0x10,&P3OUT",PED_GREEN_ON
-	            .asg    "bic.b #0x10,&P3OUT",PED_GREEN_OFF
-	            .asg    "xor.b #0x10,&P3OUT",PED_GREEN_TOGGLE
-	            .asg    "bit.b #0x10,&P3OUT",PED_GREEN_TEST
+.asg    "bis.b #0x10,&P3OUT",PED_GREEN_ON
+.asg    "bic.b #0x10,&P3OUT",PED_GREEN_OFF
+.asg    "xor.b #0x10,&P3OUT",PED_GREEN_TOGGLE
+.asg    "bit.b #0x10,&P3OUT",PED_GREEN_TEST
 
 TWENTY			.equ	200
 TEN				.equ	100
@@ -94,60 +94,60 @@ start: 		    mov.w   #__STACK_END,SP         ; init stack pointer
 	            mov.w   #WDTPW+WDTHOLD,&WDTCTL  ; stop WDT
 
 	            bis.b   #0x08,&P4DIR            ; lights
-				bis.b   #0x04,&P4DIR
-				bis.b   #0x02,&P4DIR
-				bis.b   #0x01,&P4DIR
-				bis.b   #0x40,&P4DIR
-				bis.b   #0x10,&P3DIR
+              bis.b   #0x04,&P4DIR
+              bis.b   #0x02,&P4DIR
+              bis.b   #0x01,&P4DIR
+              bis.b   #0x40,&P4DIR
+              bis.b   #0x10,&P3DIR
 
-       			bic.b  	#0x0f,&P1DIR          	; switches
-          		bis.b  	#0x0f,&P1OUT
-          		bis.b  	#0x0f,&P1REN
+              bic.b  	#0x0f,&P1DIR          	; switches
+              bis.b  	#0x0f,&P1OUT
+              bis.b  	#0x0f,&P1REN
 
-				GREEN_OFF						; Light macros
-				RED_OFF
-				YELLOW_OFF
-				ORANGE_OFF
-				PED_GREEN_OFF
-				PED_RED_OFF
+              GREEN_OFF						; Light macros
+              RED_OFF
+              YELLOW_OFF
+              ORANGE_OFF
+              PED_GREEN_OFF
+              PED_RED_OFF
 
 ; Green cycle
 ;-------------------------------------------------------------------------------
 
-green:			GREEN_ON
-				PED_RED_ON
-				mov.w	#ELEVEN,r14
-				mov.w	#TWENTY,r15
+green:			  GREEN_ON
+              PED_RED_ON
+              mov.w	#ELEVEN,r14
+              mov.w	#TWENTY,r15
 green_delay:	bit.b  	#0x02,&P4OUT
-					jeq	no_st
-				cmp.w	r14,r15
-					jge	no_st
-				GREEN_OFF
-				jmp		yellow
-no_st:			call	#tenth
-				sub.w	#1,r15
-					jnz	green_delay
-				GREEN_OFF
+              jeq	no_st
+              cmp.w	r14,r15
+                jge	no_st
+              GREEN_OFF
+                jmp		yellow
+no_st:			  call	#tenth
+              sub.w	#1,r15
+                jnz	green_delay
+              GREEN_OFF
 
 ; Yellow cycle
 ;-------------------------------------------------------------------------------
 
-yellow:			YELLOW_ON
-				mov.w	#FIVE,r15
+yellow:			  YELLOW_ON
+              mov.w	#FIVE,r15
 yellow_delay:	call	#tenth
-				sub.w	#1,r15
-					jnz yellow_delay
-				YELLOW_OFF
+              sub.w	#1,r15
+                jnz yellow_delay
+              YELLOW_OFF
 
 ; Red cycle
 ;-------------------------------------------------------------------------------
 
-red:			RED_ON
-				bit.b  	#0x02,&P4OUT   		  ; orange LED on?
-            		jeq ped_off               ; n
-         		jmp    	ped                   ; y
-ped_off:		mov.w	#FIVE,r15
-red_delay:		call	#tenth
+red:			      RED_ON
+                bit.b  	#0x02,&P4OUT   		  ; orange LED on?
+                  jeq ped_off               ; n
+                jmp    	ped                   ; y
+ped_off:		    mov.w	#FIVE,r15
+red_delay:		  call	#tenth
 				sub.w	#1,r15
 					jnz red_delay
 				RED_OFF

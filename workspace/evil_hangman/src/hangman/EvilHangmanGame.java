@@ -25,6 +25,7 @@ public class EvilHangmanGame implements IEvilHangmanGame {
     clear();
     this.wordLength = wordLength;
     StringBuilder pattern = new StringBuilder();
+    // generate blank pattern
     for (int i = 0; i < wordLength; i++) {
       pattern.append("-");
     }
@@ -119,11 +120,6 @@ public class EvilHangmanGame implements IEvilHangmanGame {
 
   // making guesses and partitioning the words
 
-  // playing the game
-  // playing the game
-  // playing the game
-  // playing the game
-  // playing the game
   @Override
   public Set<String> makeGuess(char guess) throws GuessAlreadyMadeException {
     Map<String, HashSet<String>> map = new HashMap<String, HashSet<String>>();
@@ -253,7 +249,7 @@ public class EvilHangmanGame implements IEvilHangmanGame {
       }
     }
     temp.put(highestPriority.getKey(), highestPriority.getValue());
-    return temp;
+    return temp; 
   }
 
   private void updatePattern(String pattern) {

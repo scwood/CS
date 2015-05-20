@@ -1,9 +1,0 @@
-package listem;
-
-public abstract class FileScanner {
-  
-  public void  processDir(String dirName, String pattern, boolean recursive) {
-
-  }
-  
-}
